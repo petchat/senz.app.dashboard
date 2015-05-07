@@ -43,7 +43,8 @@ angular.module('myApp.view1', ['ngRoute'])
                         + $scope.myRole.name + '.'
                         + $scope.serviceName
                         + (($scope.subname) ? '.' + $scope.subname : '')
-                }
+                },
+                examples: ['senz.datasource.log']
             },
             {
                 name: 'analyzer',
@@ -51,7 +52,12 @@ angular.module('myApp.view1', ['ngRoute'])
                     return $scope.myProject.name + '.'
                         + $scope.myRole.name + '.'
                         + $scope.analyzTarget;
-                }
+                },
+                examples: [
+                    'senz.analyzer.motion',
+                    'senz.analyzer.sound',
+                    'senz.analyzer.timeline'
+                ]
             },
             {
                 name: 'middleware',
@@ -60,7 +66,8 @@ angular.module('myApp.view1', ['ngRoute'])
                         + $scope.myRole.name + '.'
                         + $scope.convertFrom + '.'
                         + $scope.convertTo;
-                }
+                },
+                examples: ['senz.middleware.log.rawsenz']
             },
             {
                 name: 'app',
@@ -69,7 +76,11 @@ angular.module('myApp.view1', ['ngRoute'])
                         + $scope.myRole.name + '.'
                         + $scope.appName + '.'
                         + $scope.selectedPlatform.name;
-                }
+                },
+                examples: [
+                    'senz.app.darktrip.android',
+                    'senz.app.timeline'
+                ]
             },
             {
                 name: 'sdk',
@@ -78,7 +89,8 @@ angular.module('myApp.view1', ['ngRoute'])
                         + $scope.myRole.name + '.'
                         + $scope.sdkName + '.'
                         + $scope.selectedPlatform.name;
-                }
+                },
+                examples: ['senz.sdk.rabbitmq.python']
             },
             {
                 name: 'parser',
@@ -87,7 +99,11 @@ angular.module('myApp.view1', ['ngRoute'])
                         + $scope.myRole.name + '.'
                         + $scope.parserType.name + '.'
                         + $scope.parserTarget;
-                }
+                },
+                examples: [
+                    'senz.parser.appstore',
+                    'senz.parser.qunar'
+                ]
             }
         ];
 
