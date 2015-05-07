@@ -19,18 +19,16 @@
     </select>
 </div>
 
-<div ng-show="myRole.name == 'datasource'">
+<div ng-show="myRole.name == 'log'">
     <label>Log</label>
     <input ng-model="logType" placeholder="log type"/>
 </div>
 
-
-<div ng-show="myRole.name == 'log'">
+<div ng-show="myRole.name == 'datasource'">
     <label>Datasource</label>
     <input ng-model="serviceName" placeholder="source name"/>
     <input ng-model="subname" placeholder="sub-source name"/>
 </div>
-
 
 <div ng-show="myRole.name == 'analyzer'">
     <label>Analyzer</label>
