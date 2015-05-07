@@ -20,10 +20,17 @@
 </div>
 
 <div ng-show="myRole.name == 'datasource'">
+    <label>Log</label>
+    <input ng-model="logType" placeholder="log type"/>
+</div>
+
+
+<div ng-show="myRole.name == 'log'">
     <label>Datasource</label>
     <input ng-model="serviceName" placeholder="source name"/>
     <input ng-model="subname" placeholder="sub-source name"/>
 </div>
+
 
 <div ng-show="myRole.name == 'analyzer'">
     <label>Analyzer</label>
@@ -37,7 +44,7 @@
 </div>
 
 <div ng-show="myRole.name == 'app'">
-    <label>Middleware</label>
+    <label>App</label>
     <input ng-model="appName" placeholder="app name"/>
     <select ng-options="platform.name for platform in platforms"
             ng-model="selectedPlatform">

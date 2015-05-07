@@ -47,6 +47,15 @@ angular.module('myApp.view1', ['ngRoute'])
                 examples: ['senz.datasource.log']
             },
             {
+                name: 'log',
+                fullname: function () {
+                    return $scope.myProject.name + '.'
+                        + $scope.myRole.name + '.'
+                        + $scope.logType
+                },
+                examples: ['senz.log.phone']
+            },
+            {
                 name: 'analyzer',
                 fullname: function () {
                     return $scope.myProject.name + '.'
