@@ -1,1 +1,54 @@
-<p>This is the partial for view 1.</p>
+<h2>{{myRole.fullname()}}</h2>
+
+<div>
+    <select ng-options="project.name for project in projects"
+            ng-model="myProject">
+    </select>
+</div>
+
+<div>
+    <select ng-options="role.name for role in roles"
+            ng-model="myRole">
+    </select>
+</div>
+
+<div ng-show="myRole.name == 'datasource'">
+    <label>Datasource</label>
+    <input ng-model="serviceName" placeholder="source name"/>
+    <input ng-model="subname" placeholder="sub-source name"/>
+</div>
+
+<div ng-show="myRole.name == 'analyzer'">
+    <label>Analyzer</label>
+    <input ng-model="analyzTarget" placeholder="alayze target"/>
+</div>
+
+<div ng-show="myRole.name == 'middleware'">
+    <label>Middleware</label>
+    <input ng-model="convertFrom" placeholder="from"/>
+    <input ng-model="convertTo" placeholder="to"/>
+</div>
+
+<div ng-show="myRole.name == 'app'">
+    <label>Middleware</label>
+    <input ng-model="appName" placeholder="app name"/>
+    <select ng-options="platform.name for platform in platforms"
+            ng-model="selectedPlatform">
+    </select>
+</div>
+
+<div ng-show="myRole.name == 'sdk'">
+    <label>SDK</label>
+    <input ng-model="sdkName" placeholder="sdk name"/>
+    <select ng-options="platform.name for platform in platforms"
+            ng-model="selectedPlatform">
+    </select>
+</div>
+
+<div ng-show="myRole.name == 'parser'">
+    <label>Parser</label>
+    <select ng-options="parserType.name for parserType in parserTypes"
+            ng-model="parserType">
+    </select>
+    <input ng-model="parserTarget" placeholder="parser target"/>
+</div>
