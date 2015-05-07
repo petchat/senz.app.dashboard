@@ -1,6 +1,13 @@
 <h2>{{myRole.fullname()}}</h2>
 
 <div>
+    <p>examples</p>
+
+    <div ng-repeat="example in myRole.examples">{{example}}</div>
+</div>
+
+<h2>Config</h2>
+<div>
     <select ng-options="project.name for project in projects"
             ng-model="myProject">
     </select>
