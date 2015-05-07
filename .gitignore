@@ -4,7 +4,6 @@ node_modules/
 bower_components/
 app/node_modules/
 app/bower_components/
-public/bower_components
 tmp
 .DS_Store
 .idea
