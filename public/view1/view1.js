@@ -3,7 +3,7 @@
 angular.module('myApp.view1', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/utils', {
+        $routeProvider.when('/naming', {
             templateUrl: 'view1/view1.html',
             controller: 'View1Ctrl'
         });

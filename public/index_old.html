@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css"/>
+</head>
+<body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
+
+<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-sm')">
+
+    <md-toolbar class="md-whiteframe-z1">
+        <h1>Senz Dashboard</h1>
+    </md-toolbar>
+
+    <md-list>
+        <md-list-item ng-repeat="it in ul.apps">
+            <md-button ng-click="ul.selectApp(it)" ng-class="{'selected' : it === ul.selected }">
+                <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+                {{it.name}}
+            </md-button>
+        </md-list-item>
+    </md-list>
+
+</md-sidenav>
+
+<div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1 site-content-toolbar">
+        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h1>语言与框架</h1>
+    </md-toolbar>
+
+    <md-content flex id="content">
+        <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+        <h2>{{ul.selected.name}}</h2>
+        <p>{{ul.selected.content}}</p>
+
+        <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
+            <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
+            <md-icon md-svg-icon="share"></md-icon>
+        </md-button>
+    </md-content>
+
+</div>
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script src="./bower_components/angular-material/angular-material.js"></script>
+
+<script src="app.js"></script>
+<script src="apps/apps.js"></script>
+<script src="view1/view1.js"></script>
+<script src="view2/view2.js"></script>
+
+<script src="./src/users/Users.js"></script>
+<script src="./src/users/UserController.js"></script>
+<script src="./src/users/UserService.js"></script>
+
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

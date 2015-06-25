@@ -1,48 +1,69 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="en">
 <head>
+    <title>Angular Material - Starter App</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-    <link rel="stylesheet" href="app.css">
-    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
 </head>
-<body>
-<ul class="menu">
-    <li><a href="#/utils">Utils</a></li>
-    <li><a href="#/projects">Projects</a></li>
-</ul>
 
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
+<body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
 
-<div ng-view></div>
+<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-sm')">
 
-<div>Sens dashboard webapp: v<span app-version></span></div>
+    <md-toolbar class="md-whiteframe-z1"
+                layout="row" layout-align-gt-sm="center center">
+        <h1>Senz Dashboard</h1>
+    </md-toolbar>
 
-<!-- In production use:
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
--->
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="app.js"></script>
-<script src="view1/view1.js"></script>
-<script src="view2/view2.js"></script>
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
+    <md-list>
+        <md-list-item ng-repeat="it in ul.apps">
+            <md-button ng-click="ul.selectApp(it)" ng-class="{'selected' : it === ul.selected }">
+                {{it.name}}
+            </md-button>
+        </md-list-item>
+    </md-list>
+
+</md-sidenav>
+
+
+<div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" layout-align-sm="start center" layout-align-gt-sm="center center" class="md-whiteframe-z1">
+        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+            <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+        <h1>{{ul.selected.name}}</h1>
+    </md-toolbar>
+
+    <md-content flex id="content">
+        <div ng-view></div>
+    </md-content>
+
+</div>
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script src="./bower_components/angular-material/angular-material.js"></script>
+
+<script src="./bower_components/angular-route/angular-route.min.js"></script>
+<script src="./bower_components/angular-loader/angular-loader.min.js"></script>
+<script src="./app.js"></script>
+<script src="./view1/view1.js"></script>
+<script src="./service/service.js"></script>
+
+<script src="./src/users/Users.js"></script>
+<script src="./src/users/UserController.js"></script>
+<script src="./src/users/UserService.js"></script>
+
 </body>
 </html>

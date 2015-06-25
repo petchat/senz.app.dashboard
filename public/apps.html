@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.5.4.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="underscore-min.js"></script>
+</head>
+<body ng-app="Dashboard">
+<div ng-controller="DashboardController">
+    <div ng-repeat="(key, value) in appsByName">
+        <h4># {{key}}</h4>
+
+        <div> - PROD: {{value.prod.app_id}}, {{value.prod.app_key}}</div>
+        <div> - TEST: {{value.test.app_id}}, {{value.test.app_key}}</div>
+        <!--{{app.get('app_id')}}, {{app.get('app_key')}}-->
+    </div>
+</div>
+<script>
+    AV.initialize("knqxgvqzvz5qxlzy4xyu1s45kskq1x0allm6en72pi01ulw4", "yljkxioux02ibrms7hctug9x0ym8jhwtnym00hea2rr8a5lw");
+
+    var Application = AV.Object.extend('Application');
+    angular.module('Dashboard', [])
+            .controller('DashboardController', function ($scope) {
+                function refineApps(apps) {
+                    var appsByName = {};
+
+                    apps.forEach(function (app) {
+                        var app_fullname = app.get('app_name'),
+                                app_name = app_fullname,
+                                is_test = false;
+                        if (app_fullname.indexOf('test@') === 0) {
+                            app_name = app_fullname.slice('test@'.length);
+                            is_test = true;
+                        }
+                        appsByName[app_name] = appsByName[app_name] || {};
+                        if (is_test) {
+                            appsByName[app_name].test = app.toJSON();
+                        } else {
+                            appsByName[app_name].prod = app.toJSON();
+                        }
+                    })
+                    $scope.appsByName = appsByName;
+                }
+
+                $scope.refreshApps = function () {
+                    new AV.Query(Application).find(
+                            function (apps) {
+                                refineApps(apps);
+                                $scope.apps = apps;
+                                $scope.$apply();
+                            }
+                    )
+                }
+                $scope.refreshApps();
+            })
+</script>
+
+</body>
+</html>
