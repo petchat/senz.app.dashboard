@@ -29,7 +29,7 @@
             .loadAllUsers()
             .then(function (apps) {
                 self.apps = [].concat(apps);
-                self.selected = apps[0];
+                selectApp(apps[0]);
             });
 
         // *********************************

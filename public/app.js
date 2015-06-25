@@ -10,6 +10,8 @@ angular.module('starterApp', [
 ]).
     config(['$routeProvider', '$mdThemingProvider', '$mdIconProvider',
         function ($routeProvider, $mdThemingProvider, $mdIconProvider) {
+            AV.initialize("knqxgvqzvz5qxlzy4xyu1s45kskq1x0allm6en72pi01ulw4", "yljkxioux02ibrms7hctug9x0ym8jhwtnym00hea2rr8a5lw");
+
             $routeProvider.otherwise({redirectTo: '/apps'});
 
             $mdIconProvider

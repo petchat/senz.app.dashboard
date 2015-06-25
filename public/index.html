@@ -11,6 +11,9 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
+
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.5.4.js"></script>
+
 </head>
 
 <body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
@@ -44,7 +47,7 @@
         <h1>{{ul.selected.name}}</h1>
     </md-toolbar>
 
-    <md-content flex id="content">
+    <md-content flex id="content" style="overflow: scroll !important;" >
         <div ng-view></div>
     </md-content>
 
@@ -61,7 +64,7 @@
 <script src="./view1/view1.js"></script>
 <script src="./service/service.js"></script>
 
-<script src="./src/users/Users.js"></script>
+<script src="./src/service/service.js"></script>
 <script src="./src/users/UserController.js"></script>
 <script src="./src/users/UserService.js"></script>
 
