@@ -16,9 +16,9 @@ html, body {
     width: 36px;
 }
 
-/*md-toolbar h1 {*/
-/*margin: auto;*/
-/*}*/
+md-toolbar h1 {
+margin: auto;
+}
 
 /* Sidenav area */
 

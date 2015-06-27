@@ -29,12 +29,20 @@
             {
                 name: 'Naming',
                 id: 'naming'
+            },
+            {
+                name: 'Timeline',
+                id: 'timeline'
+            },
+            {
+                name: 'Parser',
+                id: 'parser'
             }
         ];
 
         // Promise-based API
         return {
-            loadAllUsers: function () {
+            loadAllApps: function () {
                 // Simulate async nature of real remote calls
                 return $q.when(apps);
             }

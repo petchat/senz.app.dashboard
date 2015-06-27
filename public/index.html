@@ -18,22 +18,23 @@
 
 <body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
 
-<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
-            md-component-id="left"
-            md-is-locked-open="$mdMedia('gt-sm')">
+<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 md-closed"
+"
+md-component-id="left"
+md-is-locked-open="$mdMedia('gt-sm')">
 
-    <md-toolbar class="md-whiteframe-z1"
-                layout="row" layout-align-gt-sm="center center">
-        <h1>Senz Dashboard</h1>
-    </md-toolbar>
+<md-toolbar class="md-whiteframe-z1"
+            layout="row" layout-align-gt-sm="center center">
+    <h1>Senz Dashboard</h1>
+</md-toolbar>
 
-    <md-list>
-        <md-list-item ng-repeat="it in ul.apps">
-            <md-button ng-click="ul.selectApp(it)" ng-class="{'selected' : it === ul.selected }">
-                {{it.name}}
-            </md-button>
-        </md-list-item>
-    </md-list>
+<md-list>
+    <md-list-item ng-repeat="it in ul.apps">
+        <md-button ng-click="ul.selectApp(it)" ng-class="{'selected' : it === ul.selected }">
+            {{it.name}}
+        </md-button>
+    </md-list-item>
+</md-list>
 
 </md-sidenav>
 
@@ -47,7 +48,7 @@
         <h1>{{ul.selected.name}}</h1>
     </md-toolbar>
 
-    <md-content flex id="content" style="overflow: scroll !important;" >
+    <md-content flex id="content" style="overflow: scroll !important;">
         <div ng-view></div>
     </md-content>
 
@@ -57,16 +58,14 @@
 <script src="./bower_components/angular-animate/angular-animate.js"></script>
 <script src="./bower_components/angular-aria/angular-aria.js"></script>
 <script src="./bower_components/angular-material/angular-material.js"></script>
-
 <script src="./bower_components/angular-route/angular-route.min.js"></script>
 <script src="./bower_components/angular-loader/angular-loader.min.js"></script>
-<script src="./app.js"></script>
-<script src="./view1/view1.js"></script>
-<script src="./service/service.js"></script>
 
-<script src="./src/service/service.js"></script>
-<script src="./src/users/UserController.js"></script>
-<script src="./src/users/UserService.js"></script>
+<script src="./app.js"></script>
+
+<script src="./app/node/app.js"></script>
+<script src="./app/timeline/app.js"></script>
+<script src="./app/nav/app.js"></script>
 
 </body>
 </html>

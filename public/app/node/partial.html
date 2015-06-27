@@ -1,3 +1,5 @@
+<md-button class="md-raised md-warn" ng-click="reloadApps()">重新加载</md-button>
+
 <div ng-repeat="(key, value) in appsByName">
     <h4># {{key}}</h4>
 
@@ -5,3 +7,4 @@
     <div> - TEST: {{value.test.app_id}}, {{value.test.app_key}}</div>
     <!--{{app.get('app_id')}}, {{app.get('app_key')}}-->
 </div>
+

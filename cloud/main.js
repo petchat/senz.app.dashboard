@@ -226,7 +226,7 @@ AV.Cloud.define("refresh_all_apps", function (request, response) {
                 delete app.id;
                 promises.push(new Application(record).save());
             })
-            return AV.Promise.when(promises);
+            return AV.Promise.all(promises);
         })
         .then(function (apps) {
             response.success(apps);
@@ -300,7 +300,7 @@ AV.Cloud.define("copy_app", function (request, response) {
                 return saveData(to, className, data);
             })
             .then(function (records) {
-                response.success(records.length);
+                response.success(records);
             }, function (err) {
                 response.error(err);
             })

@@ -3,9 +3,10 @@
 // Declare app level module which depends on views, and components
 angular.module('starterApp', [
     'ngRoute',
-    'myApp.view1',
     'myApp.services',
+    'myApp.timeline',
     'ngMaterial',
+    'myApp.services',
     'apps'
 ]).
     config(['$routeProvider', '$mdThemingProvider', '$mdIconProvider',
@@ -27,15 +28,6 @@ angular.module('starterApp', [
                 .primaryPalette('brown')
                 .accentPalette('red');
 
-
         }])
     .controller('AppCtrl', function ($scope) {
-        $scope.test = "lalala";
-        //$scope.toggleList = function () {
-        //    var pending = $mdBottomSheet.hide() || $q.when(true);
-        //
-        //    pending.then(function () {
-        //        $mdSidenav('left').toggle();
-        //    });
-        //}
     })
