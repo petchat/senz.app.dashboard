@@ -58,7 +58,7 @@
                         $scope.apps = apps;
                         $scope.$apply();
                     })
-            }
+            };
 
             $scope.refetch();
         }])

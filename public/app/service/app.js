@@ -27,6 +27,10 @@
                 id: 'monitor'
             },
             {
+                name: 'Trace',
+                id: 'trace'
+            },
+            {
                 name: 'Naming',
                 id: 'naming'
             },

@@ -3,8 +3,10 @@
 // Declare app level module which depends on views, and components
 angular.module('starterApp', [
     'ngRoute',
-    'myApp.services',
+    'ngSanitize',
     'myApp.timeline',
+    'myApp.monitor',
+    'myApp.trace',
     'ngMaterial',
     'myApp.services',
     'apps'

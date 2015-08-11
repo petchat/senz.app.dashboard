@@ -1,0 +1,35 @@
+<!--<iframe width="100%" height="650px" seamless frameborder="0" ng-src="app/trace/map.html" ></iframe> -->
+
+<h1 class="md-title">PICK INFO BELOW</h1>
+<div layout="row">
+    <md-input-container>
+        <label>Time From</label>
+        <input id="from" type="text"/>
+    </md-input-container>
+    <md-input-container>
+        <label>Time To</label>
+        <input id="to" type="text"/>
+    </md-input-container>
+    <md-select ng-model="userid" placeholder="Username">
+        <md-option ng-repeat="u in user_list" value="{{u.id}}">{{u.name}}</md-option>
+    </md-select>
+    <md-button style="height: 20px;margin-top: 18px;" id="btn" class="md-raised" ng-click="get_trace()">trace</md-button>
+    <div class="line" id="info">Loading ...
+        <md-progress-circular class="md-accent" md-mode="indeterminate"></md-progress-circular>
+    </div>
+</div>
+<div layout="row">
+    <md-input-container>
+        <label>Mark From</label>
+        <input id="mark_from" type="text"/>
+    </md-input-container>
+    <md-input-container>
+        <label>Mark To</label>
+        <input id="mark_to" type="text"/>
+    </md-input-container>
+    <md-button style="height: 20px;margin-top: 18px;" id="m_btn" class="md-raised md-warn" ng-click="mark_trace()">mark</md-button>
+    <div style="height: 20px;margin-top: 28px;margin-left: 20px;">(No trace?</div>
+    <md-button style="height: 20px;margin-top: 18px;" class="md-primary md-warn" ng-href="http://maptools.avosapps.com" target="_blank">Make Trace</md-button>
+    <div style="height: 20px;margin-top: 28px;">)</div>
+</div>
+<div class="line" id="allmap" style="height:600px;margin-top: 30px;"></div>
