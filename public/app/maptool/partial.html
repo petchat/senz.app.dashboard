@@ -1,0 +1,115 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        #bdmap, #toolkits {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <style type="text/css">
+        div.lines_time {
+            margin: 5%;
+            height: auto;
+        }
+    </style>
+    <!--<script type="text/javascript"-->
+    <!--src="http://api.map.baidu.com/api?v=2.0&ak=E10c9345cf36ee1cba5c2b34432d8fb3"></script>-->
+
+    <!--<script type="text/javascript"-->
+    <!--src="http://api.map.baidu.com/getscript?v=2.0&ak=E10c9345cf36ee1cba5c2b34432d8fb3&services=&t=20150812134435"></script>-->
+    <script type="text/javascript" src="./app/maptool/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./app/maptool/jquery.datetimepicker.css"/>
+    <script src="./app/maptool/jquery.datetimepicker.js"></script>
+    <title>SenzMapdata Tools</title>
+</head>
+<body>
+<div ng-app="myApp.maptool" ng-controller="MaptoolCtrl">
+    <span id="toolkits" style="height:20% float: right">
+        <button id="btn_start" class="button">起点</button>
+        <button id="btn_end" class="button">终点</button>
+        <button id="btn_waypoint" class="button">途经点</button>
+        <button id="btn_driving_router">驾车导航</button>
+        <button id="btn_walking_router">步行导航</button>
+        <button id="btn_transit_router">公交导航</button>
+        <button id="btn_reset">重置</button>
+        <button id="btn_getdata">获取数据</button>
+    </span>
+
+    <div>
+        <div id="bdmap" style="height:600px;margin-top: 30px;width: 85%;float:left"></div>
+        <div id="info_menu" style="width: 15%;float: right;">
+            <div class="lines_time">
+                <span>情景设置</span>
+
+                <div>
+                    <select id="select-context">
+                        <option value="1">context</option>
+                    </select>
+                </div>
+            </div>
+            <div class="lines_time">
+                <span>Time设置</span>
+
+                <div>
+                    <select id="select-time">
+                        <option value="1">time</option>
+                    </select>
+                </div>
+            </div>
+            <div class="lines_time">
+                <span>Day设置</span>
+
+                <div>
+                    <select id="select-day">
+                        <option value="1">day</option>
+                    </select>
+                </div>
+            </div>
+            <div class="lines_time">
+                <span>StartTimestamp设置</span>
+
+                <div>
+                    <input id="datetimepicker" style="width: 95%" type="text">
+                </div>
+                <span>Timestamp间隔（秒）</span>
+
+                <div>
+                    <input id="timestamp_interval" style="width: 90%" value=1 type="number">
+                </div>
+            </div>
+            <div class="lines_time">
+                <span class="lines_time">模式设置</span>
+
+                <div>
+                    <input id="isPointGenerate" type="checkbox">点生成模式</input>
+                </div>
+                <div>
+                    <input id="isSaved" type="checkbox">是否保存</input>
+                </div>
+            </div>
+            <div class="lines_time">
+                <span>查询Trace</span>
+
+                <div>
+                    <input id="trace_id" style="width: 65%;float: left" type="text">
+                </div>
+                <div>
+                    <input id="btn_gettrace" type="button" style="width: 30%;float: right" value="查询">
+                </div>
+            </div>
+            <div class="lines_time">
+                <span>近期Trace</span>
+                <ol id="tracelist">
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script type="text/javascript" src="./app/maptool/js/SenzMapDataTools.js"></script>-->
+</body>
+</html>

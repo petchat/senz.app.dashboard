@@ -8,6 +8,7 @@ angular.module('starterApp', [
     'myApp.monitor',
     'myApp.trace',
     'ngMaterial',
+    'myApp.maptool',
     'myApp.services',
     'apps'
 ]).

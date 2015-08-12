@@ -41,6 +41,10 @@
             {
                 name: 'Parser',
                 id: 'parser'
+            },
+            {
+                name: 'Maptool',
+                id: 'maptool'
             }
         ];
 
