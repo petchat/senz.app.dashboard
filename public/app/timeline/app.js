@@ -8,4 +8,4 @@ angular.module('myApp.timeline', ['ngRoute'])
     }])
 
     .controller('TimelineCtrl', ["$scope", function ($scope) {
-    }])
+    }]);

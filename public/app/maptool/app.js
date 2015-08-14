@@ -11,7 +11,6 @@ angular.module('myApp.maptool', ['ngRoute'])
     }])
 
     .controller('MaptoolCtrl', ["$scope", function ($scope) {
-        //alert('aaaaaa');
         //init part
 
         startMarker = null;
@@ -28,43 +27,9 @@ angular.module('myApp.maptool', ['ngRoute'])
 
         $scope.isPublicRoute = false;
 
-        var seq_context;
-        $scope.init_context = function () {
-            $.ajax({
-                url: 'http://maptools.avosapps.com/context',
-                success: function (result) {
-                    var context_obj = JSON.parse(result);
-                    $("#select-context").empty();
-                    for (var i = 0; i < context_obj.length; i++) {
-                        var option_text = '<option value="' + context_obj[i] + '">' + context_obj[i] + '</option>';
-                        //console.log(option_text);
-                        $("#select-context").append(option_text);
-                    }
-                }
-            })
-        };
-        $scope.init_feature = function () {
-            $.ajax({
-                url: 'http://maptools.avosapps.com/feature',
-                success: function (result) {
-                    var feature_obj = JSON.parse(result);
-                    $("#select-time").empty();
-                    for (var i = 0; i < feature_obj['time'].length; i++) {
-                        var option_text = '<option value="' + feature_obj['time'][i] + '">' + feature_obj['time'][i] + '</option>';
-                        //console.log(option_text);
-                        $("#select-time").append(option_text);
-                    }
-                    $("#select-day").empty();
-                    for (var i = 0; i < feature_obj.day.length; i++) {
-                        var option_text = '<option value="' + feature_obj.day[i] + '">' + feature_obj.day[i] + '</option>';
-                        //console.log(option_text);
-                        $("#select-day").append(option_text);
-                    }
-                }
-            })
-        };
-        $scope.init_context();
-        $scope.init_feature();
+
+        init_context();
+        init_feature();
         get_recent_traceid();
 //set timestamp
         $scope.datepicker = $('#datetimepicker')
@@ -380,7 +345,7 @@ angular.module('myApp.maptool', ['ngRoute'])
             });   //创建折线
             map.addOverlay(polyline);   //增加折线
             alert("ok");
-            map.centerAndZoom(new BMap.Point(t_point_list[0].lng, t_point_list[0].lat), 12);
+            map.centerAndZoom(new BMap.Point(t_point_list[0].lng, t_point_list[0].lat),15);
         }
 
 
@@ -551,3 +516,37 @@ angular.module('myApp.maptool', ['ngRoute'])
 
     }]);
 
+init_context = function () {
+    $.ajax({
+        url: 'http://maptools.avosapps.com/context',
+        success: function (result) {
+            var context_obj = JSON.parse(result);
+            $("#select-context").empty();
+            for (var i = 0; i < context_obj.length; i++) {
+                var option_text = '<option value="' + context_obj[i] + '">' + context_obj[i] + '</option>';
+                //console.log(option_text);
+                $("#select-context").append(option_text);
+            }
+        }
+    })
+};
+init_feature = function () {
+    $.ajax({
+        url: 'http://maptools.avosapps.com/feature',
+        success: function (result) {
+            var feature_obj = JSON.parse(result);
+            $("#select-time").empty();
+            for (var i = 0; i < feature_obj['time'].length; i++) {
+                var option_text = '<option value="' + feature_obj['time'][i] + '">' + feature_obj['time'][i] + '</option>';
+                //console.log(option_text);
+                $("#select-time").append(option_text);
+            }
+            $("#select-day").empty();
+            for (var i = 0; i < feature_obj.day.length; i++) {
+                var option_text = '<option value="' + feature_obj.day[i] + '">' + feature_obj.day[i] + '</option>';
+                //console.log(option_text);
+                $("#select-day").append(option_text);
+            }
+        }
+    })
+};
