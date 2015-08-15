@@ -81,6 +81,9 @@ function init(scope){
 }
 
 function datepicker(id){
+
+    //alert(id)
+
     $('#'+id).datetimepicker({
         timeFormat: "HH:mm:ss",
         dateFormat: "yy-mm-dd"

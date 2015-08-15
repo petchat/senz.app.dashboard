@@ -34,12 +34,17 @@ angular.module('myApp.maptool', ['ngRoute'])
 //set timestamp
         $scope.datepicker = $('#datetimepicker')
             .datetimepicker({todayButton: true, format: "Y/m/d H:i:s"});//中文化});
+//        $scope.datepicker = $('#datetimepicker')
+//            .datetimepicker({
+//                timeFormat: "HH:mm:ss",
+//                dateFormat: "yy-mm-dd"});//中文化});
         $('#datetimepicker').val(new Date().dateFormat("Y/m/d H:i:s"));
         $('#datetimepicker').click(function () {
             //console.log('123123');
             //console.log($(this));
             //console.log($('#datetimepicker').val());
             var str_date = $('#datetimepicker').val();
+            console.log(str_date);
             var dd = new Date(Date.parse(str_date));
 
             console.log(dd.getTime());
@@ -205,7 +210,7 @@ angular.module('myApp.maptool', ['ngRoute'])
                 endMarker.setPosition(new BMap.Point(e_point.lng, e_point.lat));
             }
             pointType = -1;//reset pointType
-        };
+        }
 
         function setWayPoint(bmap, e_point) {
             var waypointMark = new BMap.Marker(new BMap.Point(e_point.lng, e_point.lat));
